@@ -17,6 +17,7 @@ def get_data():
 
 def create_buckets():
     global result
+    global maximum_age
     min = minimum_age
     max = maximum_age
     t = {}
@@ -30,6 +31,11 @@ def create_buckets():
 
     result = dict(t)
 
+def get_max_age():
+    global people
+    global maximum_age
+    max_age = max(zip(people.values(), people.keys()))[0]
+    maximum_age = int(max_age)
 
 def group_people_by_age():
     global result
@@ -48,6 +54,7 @@ def print_result():
 
 def main():
     get_data()
+    get_max_age()
     create_buckets()
     group_people_by_age()
     print_result()
