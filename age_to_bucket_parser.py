@@ -37,11 +37,8 @@ def group_people_by_age():
     #print(people)
     for person,age in people.items():
         for key in result:
-            #print(key.split('-')[0] + "-"+key.split('-')[1])
             if int(age) >= int(key.split('-')[0]) and int(age) < int(key.split('-')[1]):
-                #print(person)
                 result[key] += 1
-    #print(result)
 
 def print_result():
     global result
