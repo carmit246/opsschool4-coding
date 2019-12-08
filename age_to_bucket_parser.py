@@ -23,10 +23,10 @@ def create_buckets():
     t = {}
     for bucket_age in buckets:
         range = str(min) + "-" + str(bucket_age)
-        t[range] = 0
+        t[range] = []
         min = bucket_age+1
     last_range = str(buckets[-1]+1) + "-" + str(maximum_age)
-    t[last_range] = 0
+    t[last_range] = []
 
 
     result = dict(t)
@@ -40,17 +40,19 @@ def get_max_age():
 def group_people_by_age():
     global result
     global people
+    #bucket_data = []
     #print(people)
     for person,age in people.items():
         for key in result:
             if int(age) >= int(key.split('-')[0]) and int(age) < int(key.split('-')[1]):
-                result[key] += 1
+                result[key].append(person)
 
 def print_result():
     global result
     for key,value in result.items():
         print(key + ":")
-        print("-  " + str(value))
+        for pers in value:
+            print("-  " + pers)
 
 def main():
     get_data()
