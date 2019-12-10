@@ -40,6 +40,7 @@ def main():
         buckets = sorted(json_data["buckets"])  # sort buckets
         ppl_ages = sorted(json_data["ppl_ages"].items(), key=lambda x: x[1])  # sort peoples by age
         ppl_ages_ranges_list = combine_people_by_ages(buckets, ppl_ages)
+        print(yaml.dump(ppl_ages_ranges_list,allow_unicode=True)) # print yaml
         write_yaml(yaml_file_path, ppl_ages_ranges_list)  # create result yaml file
 
 
