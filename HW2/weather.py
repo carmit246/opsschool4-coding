@@ -10,10 +10,9 @@ def get_data(city):
 
 
 def get_multiple_arguments():
-    city = sys.argv[1]
-    sities = city.split(',')
+    cities = sys.argv[1].split(',')
     degrees = sys.argv[2]
-    return sities, degrees
+    return cities, degrees
 
 
 def celsius_to_fehrenheit(current_temp):
